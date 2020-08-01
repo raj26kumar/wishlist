@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>wishlists</title>
+  </head>
+
+  <body style='background:#f2f2f2'>
+
+
+  <!-- login nav -->
+    
+      <nav class="navbar navbar-light bg-light">
+        <div class='container'>
+          {% if user.is_authenticated %}  <!-- start if statement-->
+
+            <h6>Welcome <strong>{{ user.username }}</strong></h6>
+
+            <div  style = "position:right">
+              <a href = "{% url 'logout' %}"><button type="button" class="btn btn-outline-info">Logout</button></a>
+              <a href = "{% url 'password_change' %}"><button type="button" class="btn btn-outline-info">Change Password</button></a>
+            </div>
+
+          {% else %}
+
+            <div  style = "position:right">
+              <a href = "{% url 'login' %}"><button type="button" class="btn btn-outline-info">Login</button></a>
+            </div>
+
+          {% endif %}      <!-- end if statement-->
+        </div>
+      </nav>
+      
+
+
+  <!-- 2nd nav-bar -->
+    <body style='background:#f2f2f2'>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class = "container">
+        <a class="navbar-brand" href="#">Make A List Of Things</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    
+      <form class="form-inline my-2 my-lg-0" method = 'POST' >
+          {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="Type here" name='item'>
+          <a>Deadline<input class="form-control mr-sm-2" type="date" placeholder="deadline" name='date'></a><br>
+          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add To The List</a></button>
+      </form>
+      </div>
+      </div>
+    </nav>
+      <br/>
+
+      <div class="container">
+
+                <!-- for showing to signin -->
+                {% if user.is_authenticated %}
+                {% else %}
+    
+                  <h5><p style="color:orange">Plz login to make list</p><h5>
+
+                {% endif %}
+      
+        {% block heading %}
+        {% endblock %}
+      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+   </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+ {% block heading  %}
+
+
+
+    <div style="position:absolute; left:180px; top:120px">
+      <!-- login -->
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>sign in</button>
+      </form>
+
+        <p style="position:absolute; top:180px">
+        <pr>If you dont have an account <a href="register" style="color:#14048c">Register</a> here:
+        <a href="register" style="color:#14048c">SIGN UP For A New Account</a></pr>
+        
+    </div>
+
+{% endblock  %}

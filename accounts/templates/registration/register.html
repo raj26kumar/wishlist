@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+{% block heading %}
+
+
+<h2>sign up</h2>
+   <!-- sign up form -->
+
+    <div style="position:absolute; left:180px; top: 120px">
+        <form method="post">
+        ` {% csrf_token %}
+
+            <!-- a7 style="position:fixed; top:50px;">email: <input type="email" name="email" placeholder="e-mail"></a7><br>
+            <a2 style="position:fixed; top:100px;"></a2 -->
+
+                {{ form.as_p}}
+                <button>sign up</button> 
+        </form>
+    </div>
+
+{% endblock %}

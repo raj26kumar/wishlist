@@ -1,0 +1,24 @@
+.word-break  { word-break: break-all, 
+
+}
+
+
+a1 { 
+    position:absolute; 
+    top:10px 
+}
+
+a2 { 
+    position:absolute; 
+    top:50px 
+}
+
+a3 { 
+    position:absolute; 
+    top:90px 
+}
+
+a4 { 
+    position:absolute; 
+    top:140px 
+}
